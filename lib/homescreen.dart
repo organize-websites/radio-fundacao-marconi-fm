@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
     await FlutterShare.share(
         title: 'Compartilhar App',
         text: 'Conheça o app da Rádio Fundação Marconi FM',
-        linkUrl: 'https://play.google.com/store/apps/details?id=com.organizeapps.radiofundacaomarconifm',
+        linkUrl: 'https://apps.apple.com/br/developer/lucas-m-c-leite/id1525773157',
         chooserTitle: ' ');
   }
 
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
               delegate: 
               SliverChildListDelegate(
                 [
@@ -238,24 +238,6 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Image.asset('imagens/whatsapp.png'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),                  
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
-                      onPressed: _launchURL5,
-                      child:
-                      Column(
-                        children: <Widget>[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image.asset('imagens/site.png'),
                             ],
                           ),
                         ],
