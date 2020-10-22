@@ -32,8 +32,8 @@ void initState(){
 Future<void> share() async {
     await FlutterShare.share(
         title: 'Compartilhar App',
-        text: 'Conheça o app da Rádio Fundação Marconi FM',
-        linkUrl: 'https://play.google.com/store/apps/details?id=com.organizeapps.radiofundacaomarconifm',
+        text: 'Conheça o app da Rádio Marconi FM',
+        linkUrl: 'https://apps.apple.com/br/app/r%C3%A1dio-funda%C3%A7%C3%A3o-marconi-fm/id1535235597',
         chooserTitle: ' ');
   }
 
