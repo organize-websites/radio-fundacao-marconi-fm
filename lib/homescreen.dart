@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
     await FlutterShare.share(
         title: 'Compartilhar App',
         text: 'Conheça o app da Rádio Marconi FM',
-        linkUrl: 'https://apps.apple.com/br/developer/lucas-m-c-leite/id1525773157',
+        linkUrl: 'https://apps.apple.com/br/app/r%C3%A1dio-funda%C3%A7%C3%A3o-marconi-fm/id1535235597',
         chooserTitle: ' ');
   }
 
