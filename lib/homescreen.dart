@@ -15,7 +15,7 @@ import 'politica.dart';
 
 void main() {runApp(
   MaterialApp(  
-  title: 'Rádio Fundação Marconi FM',
+  title: 'Rádio Marconi FM',
 	 theme: ThemeData(
 	   primarySwatch: Colors.purple[800],
          ),
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> share() async {
     await FlutterShare.share(
         title: 'Compartilhar App',
-        text: 'Conheça o app da Rádio Fundação Marconi FM',
+        text: 'Conheça o app da Rádio Marconi FM',
         linkUrl: 'https://apps.apple.com/br/developer/lucas-m-c-leite/id1525773157',
         chooserTitle: ' ');
   }
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> initRadioService() async {
     try {
       await _flutterRadioPlayer.init(
-          "Rádio Fundação Marconi FM", "Ao Vivo", "http://player.stream2.com.br/proxy/8408/stream", "true");          
+          "Rádio Marconi FM", "Ao Vivo", "http://player.stream2.com.br/proxy/8408/stream", "true");          
     } on PlatformException {
       print("Não foi possivel acessar a radio agora...");
     }
@@ -179,14 +179,14 @@ class _HomePageState extends State<HomePage> {
               SliverChildListDelegate(
                 [
                   Padding(
-                    padding: const EdgeInsets.only(top: 75.0, bottom: 200.0, left: 60.0, right: 60.0),
+                    padding: const EdgeInsets.only(top: 70.0, bottom: 150.0, left: 60.0, right: 60.0),
                     child: Image.asset('imagens/logo-white.png'),
                   )
                 ],
               ),
             ),
             SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
               delegate: 
               SliverChildListDelegate(
                 [
@@ -238,6 +238,24 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Image.asset('imagens/whatsapp.png'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+		  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FlatButton(
+                      onPressed: _launchURL5,
+                      child:
+                      Column(
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset('imagens/site.png'),
                             ],
                           ),
                         ],
@@ -433,7 +451,7 @@ class _HomePageState extends State<HomePage> {
 
 
 _launchURL() async {
-  const url = 'http://wa.me/5548984521235&text=';
+  const url = 'https://api.whatsapp.com/send?phone=5548984521235&text=';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -442,7 +460,7 @@ _launchURL() async {
 }
 
 _launchURL2() async {
-  const url = 'fb://page/433371300112213/';
+  const url = 'https://www.facebook.com/radiofundacaomarconi/';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -451,7 +469,7 @@ _launchURL2() async {
 }
 
 _launchURL3() async {
-  const url = 'instagram://user?username=radiomarconi';
+  const url = 'https://www.instagram.com/radiomarconi/';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -476,5 +494,3 @@ _launchURL5() async {
     throw 'Could not launch $url';
   }
 }
-
-
