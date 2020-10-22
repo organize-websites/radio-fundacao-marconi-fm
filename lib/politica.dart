@@ -40,7 +40,7 @@ Future<void> share() async {
   Future<void> initRadioService() async {
     try {
       await _flutterRadioPlayer.init(
-          "Rádio Fundação Marconi FM", "Ao Vivo", "https://player.stream2.com.br/proxy/7066/stream", "true");
+          "Rádio Marconi FM", "Ao Vivo", "https://player.stream2.com.br/proxy/7066/stream", "true");
     } on PlatformException {
       print("Não foi possivel acessar a radio agora...");
     }
@@ -56,7 +56,7 @@ Future<void> share() async {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Rádio Fundação Marconi FM',
+      title: 'Rádio Marconi FM',
       theme: ThemeData.light(),
       home: Scaffold(
       appBar: 
@@ -213,9 +213,8 @@ Future<void> share() async {
   }
 }
 
-
 _launchURL() async {
-  const url = 'http://wa.me/5548984521235&text=';
+  const url = 'https://api.whatsapp.com/send?phone=5548984521235&text=';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -224,7 +223,7 @@ _launchURL() async {
 }
 
 _launchURL2() async {
-  const url = 'fb://page/433371300112213/';
+  const url = 'https://www.facebook.com/radiofundacaomarconi/';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -233,7 +232,7 @@ _launchURL2() async {
 }
 
 _launchURL3() async {
-  const url = 'instagram://user?username=radiomarconi';
+  const url = 'https://www.instagram.com/radiomarconi/';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -243,6 +242,15 @@ _launchURL3() async {
 
 _launchURL4() async {
   const url = 'tel:+5548984521235';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURL5() async {
+  const url = 'https://radiomarconi.net/';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
