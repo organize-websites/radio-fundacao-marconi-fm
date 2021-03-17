@@ -284,20 +284,24 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 25.0, bottom: 25.0),
                     child: Center(
-                      child: StreamBuilder(                                               
+                      child: Text("A VOZ DOS VINHEDOS", style: TextStyle(color: Colors.white, fontSize: 20.0), textAlign: TextAlign.center,),
+                      
+                      /*StreamBuilder(                                               
                         stream: Stream.periodic(Duration(seconds: 5))
                         .asyncMap((futureAlbum) => fetchAlbum()),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             return Text(snapshot.data.title, style: TextStyle(color: Colors.white, fontSize: 20.0), textAlign: TextAlign.center,);
                           } else if (snapshot.hasError) {
-                            return Text("${snapshot.error}", style: TextStyle(color: Colors.white, fontSize: 20.0), textAlign: TextAlign.center,);
+                            return Text("Rádio Marconi FM", style: TextStyle(color: Colors.white, fontSize: 20.0), textAlign: TextAlign.center,);
                           }
 
                           // By default, show a loading spinner.
                           return CircularProgressIndicator();
                         },
-                      ),
+                      ),*/
+
+
                     ),
                   ),
                 ],
