@@ -32,7 +32,7 @@ Future<void> share() async {
     await FlutterShare.share(
         title: 'Compartilhar App',
         text: 'Conheça o app da Rádio Marconi FM',
-        linkUrl: 'https://apps.apple.com/br/app/r%C3%A1dio-funda%C3%A7%C3%A3o-marconi-fm/id1535235597',
+        linkUrl: 'https://play.google.com/store/apps/details?id=com.organizeapps.radiofundacaomarconifm',
         chooserTitle: ' ');
   }
 
@@ -82,12 +82,11 @@ Future<void> share() async {
             children: <Widget>[
               DrawerHeader(
                 child: Center(
-                  child: FlatButton(
+                  child: TextButton(
                     child: Image.asset('imagens/logo-white.png'),
                     onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
                         },
-                    color: Colors.transparent,
                   ),
                 ),
               ),
@@ -144,7 +143,7 @@ Future<void> share() async {
         backgroundColor: Colors.white,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            title:  Text('.'),
+            label:  '',
             icon: Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: IconButton(
@@ -156,7 +155,7 @@ Future<void> share() async {
             ),
           ),
           BottomNavigationBarItem(
-            title:  Text('.'),
+            label:  '',
             icon: Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: StreamBuilder(
@@ -168,7 +167,7 @@ Future<void> share() async {
                                 print("object data: " + returnData);
                                 switch (returnData) {
                                   case FlutterRadioPlayer.flutter_radio_stopped:
-                                    return RaisedButton(
+                                    return ElevatedButton(
                                         child: Text("Ouça Agora!"),
                                         onPressed: () async {
                                           await initRadioService();
@@ -177,7 +176,7 @@ Future<void> share() async {
                                   case FlutterRadioPlayer.flutter_radio_loading:
                                     return Text("Carregando...");
                                   case FlutterRadioPlayer.flutter_radio_error:
-                                    return RaisedButton(
+                                    return ElevatedButton(
                                         child: Text("Tentar Novamente ?"),
                                         onPressed: () async {
                                           await initRadioService();
@@ -206,7 +205,7 @@ Future<void> share() async {
             ),
           ),
           BottomNavigationBarItem(
-            title: Text('.'),
+            label:  '',
             icon: Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: IconButton(
