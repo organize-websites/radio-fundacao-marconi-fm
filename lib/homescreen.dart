@@ -11,8 +11,6 @@ import 'dart:convert';
 import 'sobre.dart';
 import 'politica.dart';
 
-
-
 void main() {runApp(
   MaterialApp(  
   title: 'Rádio Marconi FM',
@@ -23,10 +21,6 @@ void main() {runApp(
       )
     );
 }
-
-
-
-
 
 Future<Album> fetchAlbum() async { 
   var response =
@@ -42,7 +36,6 @@ Future<Album> fetchAlbum() async {
     throw Exception('Failed to load album');
   }
 }
-
 
 class Album {
   final int userId;
@@ -60,14 +53,8 @@ class Album {
   }
 }
 
-
-
-
-
 class HomePage extends StatefulWidget {
   
-  
-
   HomePage({Key key}) : super(key: key);
 
   var playerState = FlutterRadioPlayer.flutter_radio_paused;
@@ -122,13 +109,9 @@ class _HomePageState extends State<HomePage> {
     await FlutterShare.share(
         title: 'Compartilhar App',
         text: 'Conheça o app da Rádio Marconi FM',
-        linkUrl: 'https://apps.apple.com/br/app/r%C3%A1dio-funda%C3%A7%C3%A3o-marconi-fm/id1535235597',
+        linkUrl: 'https://play.google.com/store/apps/details?id=com.organizeapps.radiofundacaomarconifm',
         chooserTitle: ' ');
-  }
-
-
-
-   
+  }   
 
   @override
   void initState() { 
@@ -143,7 +126,6 @@ class _HomePageState extends State<HomePage> {
   ]);
   }
 
-
   Future<void> initRadioService() async {
     try {
       await _flutterRadioPlayer.init(
@@ -153,13 +135,9 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-
   _exit() async{
     if (await _flutterRadioPlayer.isPlaying()){_flutterRadioPlayer.stop(); exit(0);} else {exit(0);}
   }
-
-     
-
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +157,7 @@ class _HomePageState extends State<HomePage> {
               SliverChildListDelegate(
                 [
                   Padding(
-                    padding: const EdgeInsets.only(top: 70.0, bottom: 150.0, left: 60.0, right: 60.0),
+                    padding: const EdgeInsets.only(top: 75.0, bottom: 200.0, left: 60.0, right: 60.0),
                     child: Image.asset('imagens/logo-white.png'),
                   )
                 ],
@@ -192,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                 [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: _launchURL3,
                       child:
                       Column(
@@ -210,7 +188,7 @@ class _HomePageState extends State<HomePage> {
                   ),                    
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: _launchURL2,
                       child:
                       Column(
@@ -228,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: _launchURL,
                       child:
                       Column(
@@ -243,10 +221,10 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                  ),
-		  Padding(
+                  ),                  
+                  Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: _launchURL5,
                       child:
                       Column(
@@ -315,12 +293,11 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             DrawerHeader(
               child: Center(
-                child: FlatButton(
+                child: TextButton(
                   child: Image.asset('imagens/logo-white.png'),
                   onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
                       },
-                  color: Colors.transparent,
                 ),
               ),
             ),
@@ -377,6 +354,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color.fromRGBO(98, 20, 76, 1.0),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            label:  '',
             icon: Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: IconButton(
@@ -388,6 +366,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           BottomNavigationBarItem(
+            label:  '',
             icon: Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: StreamBuilder(
@@ -399,7 +378,7 @@ class _HomePageState extends State<HomePage> {
                                 print("object data: " + returnData);
                                 switch (returnData) {
                                   case FlutterRadioPlayer.flutter_radio_stopped:
-                                    return RaisedButton(
+                                    return ElevatedButton(
                                         child: Text("Ouça Agora!"),
                                         onPressed: () async {
                                           await initRadioService();
@@ -408,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                                   case FlutterRadioPlayer.flutter_radio_loading:
                                     return Text("Carregando...");
                                   case FlutterRadioPlayer.flutter_radio_error:
-                                    return RaisedButton(
+                                    return ElevatedButton(
                                         child: Text("Tentar Novamente ?"),
                                         onPressed: () async {
                                           await initRadioService();
@@ -437,6 +416,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           BottomNavigationBarItem(
+            label:  '',
             icon: Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: IconButton(
@@ -451,7 +431,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
 
 
 _launchURL() async {
